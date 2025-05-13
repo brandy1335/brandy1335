@@ -2,7 +2,7 @@ name: GitHub Azad Aura Generator
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
+    - cron: "0 0 * * *"  # हर दिन रात 12 बजे (UTC)
   push:
     branches: [main]
 
@@ -10,21 +10,20 @@ jobs:
   build-azad-aura:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generate Azad Aura Animation
-        uses: yourusername/custom-aura-action@v1  # Change this to actual action if available
+      - name: ⚡ Generate Azad Aura Animation
+        uses: brandy1335
         with:
           username: brandy1335
           theme: sovereign-dark
           output: dist/azad-aura.svg
 
-      - name: Deploy animation
+      - name: 🚀 Deploy Aura Animation
         uses: peaceiris/actions-gh-pages@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-          
+          commit_message: "🌀 Azad Aura Updated"
