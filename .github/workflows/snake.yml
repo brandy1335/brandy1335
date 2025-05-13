@@ -3,42 +3,48 @@
 name: GitHub Snake Game
 
 on:
-  # Schedule the workflow to run daily at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-  # Allow manual triggering of the workflow
-  workflow_dispatch:
-  # Trigger the workflow on pushes to the main branch
+    - cron: "0 */12 * * *" # हर 12 घंटे में चलता है
+  workflow_dispatch: # मैन्युअल ट्रिगर
   push:
     branches:
       - main
+
 jobs:
   generate:
+    permissions:
+      contents: write # रिपॉजिटरी में लिखने की परमिशन
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # Step 1: Checkout the repository
+      # स्टेप 1: रिपॉजिटरी चेकआउट करें
       - name: Checkout Repository
         uses: actions/checkout@v3
-      # Step 2: Generate the snake animations
+
+      # स्टेप 2: स्नेक एनिमेशन जनरेट करें
       - name: Generate GitHub Contributions Snake Animations
         uses: Platane/snk@v3
         with:
-          # GitHub username to generate the animation for
           github_user_name: ${{ github.repository_owner }}
-          # Define the output files and their configurations
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
+            dist/github-snake-custom.svg?color_snake=blue&color_dots=#ff0000,#00ff00,#0000ff
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Step 3: Deploy the generated files to the 'output' branch
+
+      # स्टेप 3: स्टेटस चेक करें (एरर हैंडलिंग)
+      - name: Check Build Status
+        run: |
+          ls -la dist/
+          git status
+
+      # स्टेप 4: जनरेटेड फाइल्स को output ब्रांच में डिप्लॉय करें
       - name: Deploy to Output Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
-          # Optionally, you can set a custom commit message
           commit_message: "Update snake animation [skip ci]"
