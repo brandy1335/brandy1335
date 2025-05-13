@@ -5,11 +5,4 @@
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brandy1335/brandy1335/output/github-snake.svg " />
   <img alt="GitHub Snake Animation" src="https://raw.githubusercontent.com/brandy1335/brandy1335/output/github-snake.svg " />
 </picture> -->
-
-
-
-
-
-# Hi, I'm brandy1335! 👋
-
-![Snake Animation with Bramha](https://github.com/brandy1335/brandy1335/blob/output/github-snake.svg)
+[Snake Animation with Bramha](https://github.com/brandy1335/brandy1335/blob/output/github-snake.svg)
