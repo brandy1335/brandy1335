@@ -6,6 +6,10 @@
   <img alt="GitHub Snake Animation" src="https://raw.githubusercontent.com/brandy1335/brandy1335/output/github-snake.svg " />
 </picture> -->
 
+
+
+
+
 # Hi, I'm brandy1335! 👋
-![Snake Animation](https://github.com/brandy1335/brandy1335/blob/output/github-snake.svg)
-![Stats Card](https://github.com/brandy1335/brandy1335/blob/output/stats-card.svg)
+
+![Snake Animation with Bramha](https://github.com/brandy1335/brandy1335/blob/output/github-snake.svg)
