@@ -24,12 +24,15 @@ jobs:
         uses: Platane/snk@v3
         with:
           # GitHub username to generate the animation for
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: brandy1335
           # Define the output files and their configurations
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=orange
+            dist/github-snake.svg?color_snake=green&color_dots=#00FF00,#00CC00
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=lime
+            dist/ocean.gif?color_snake=navy&color_dots=#00FFFF,#00CED1,#0099CC
+          # dist/github-snake.svg
+          # dist/github-snake-dark.svg?palette=github-dark
+          # dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Step 3: Deploy the generated files to the 'output' branch
@@ -42,3 +45,4 @@ jobs:
           # Optionally, you can set a custom commit message
           commit_message: "Update snake animation [skip ci]"
 
+          
