@@ -4,11 +4,16 @@ name: GitHub Snake Game
 
 on:
   schedule:
-    - cron: "0 */12 * * *" # हर 12 घंटे में चलता है
+    - cron: "0 */6 * * *" # हर 6 घंटे में अपडेट
   workflow_dispatch: # मैन्युअल ट्रिगर
   push:
     branches:
       - main
+
+# कॉन्सरन्ट रन कैंशिलेशन
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   generate:
@@ -25,20 +30,32 @@ jobs:
       - name: Generate GitHub Contributions Snake Animations
         uses: Platane/snk@v3
         with:
-          github_user_name: ${{ github.repository_owner }}
+          github_user_name: brandy1335
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-            dist/github-snake-custom.svg?color_snake=blue&color_dots=#ff0000,#00ff00,#0000ff
+            dist/github-snake-neon.svg?color_snake=cyan&color_dots=#00ffea,#ff00ff,#00ff00
+            dist/github-snake-retro.svg?color_snake=green&color_dots=#00ff00,#ffffff,#000000
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # स्टेप 3: स्टेटस चेक करें (एरर हैंडलिंग)
-      - name: Check Build Status
+      # स्टेप 3: जनरेटेड फाइल्स का स्टेटस चेक करें
+      - name: Validate Generated Files
         run: |
+          echo "Checking generated files in dist/..."
           ls -la dist/
-          git status
+          if [ -f dist/github-snake.svg ] && [ -f dist/github-snake-dark.svg ]; then
+            echo "SVG files generated successfully!"
+          else
+            echo "Error: SVG files are missing!"
+            exit 1
+          fi
+          if [ -f dist/ocean.gif ]; then
+            echo "GIF file generated successfully!"
+          else
+            echo "Warning: GIF file is missing!"
+          fi
 
       # स्टेप 4: जनरेटेड फाइल्स को output ब्रांच में डिप्लॉय करें
       - name: Deploy to Output Branch
@@ -47,4 +64,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
-          commit_message: "Update snake animation [skip ci]"
+          commit_message: "Update snake animations on ${{ github.event.schedule || 'manual trigger' }} [skip ci]"
