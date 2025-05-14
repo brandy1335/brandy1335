@@ -2,10 +2,7 @@
 
 <!-- 👇 Python Logo Center Main -->
 <p align="center">
-  <!-- Ye link ek high-quality Python logo SVG ka hai -->
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
-       width="60" 
-       alt="Python Logo" />
+  <img src="https://media.giphy.com/media/KAq5w47R9rmTuvWOWa/giphy.gif" width="80" alt="Animated Python Logo">
 </p>
 
 <!-- 👇 Bramha Chavan Name Typing Animation ke saath -->
