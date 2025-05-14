@@ -15,28 +15,14 @@
        alt="Typing Animation for Name" />
 </h3>
 
-<!-- Blinking Light Effect for Text -->
+<!-- Animated Badge Example -->
 <p align="center">
-  <span style="font-size: 24px; font-weight: bold; color: #ffffff; text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;">
-    Python Architect & Sovereign AI Developer
-  </span>
+  <img src="https://img.shields.io/badge/Python%20Architect%20and%20AI%20Developer-%23FF5733?style=for-the-badge&logo=python&logoColor=white" alt="Python Architect Badge" />
 </p>
 
-<!-- Blinking Nanno Light Effect -->
 <p align="center">
-  <span style="font-size: 18px; font-weight: bold; color: #0f0; animation: blink 1.5s infinite;">
-    🌟 Transforming Ideas into Code 🌟
-  </span>
+  <img src="https://img.shields.io/badge/Transforming%20Ideas%20into%20Code-%2300FF00?style=for-the-badge&logo=python&logoColor=white" alt="Code Transformation Badge" />
 </p>
-
-<!-- Blinking animation for the text -->
-<style>
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-</style>
 
 <!-- sanke animated snake.yml code  -->
 <picture>
