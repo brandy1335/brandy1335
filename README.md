@@ -16,13 +16,11 @@
 </h3>
 
 <!-- Animated Badge Example -->
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/Python%20Architect%20and%20AI%20Developer-%23FF5733?style=for-the-badge&logo=python&logoColor=white" alt="Python Architect Badge" />
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Transforming%20Ideas%20into%20Code-%2300FF00?style=for-the-badge&logo=python&logoColor=white" alt="Code Transformation Badge" />
 </p>
+
 
 <!-- sanke animated snake.yml code  -->
 <picture>
